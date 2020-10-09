@@ -1,0 +1,13 @@
+import numpy as np
+a = np.arange(48).reshape(6, 8)
+c = np.arange(24).reshape(3, 8)
+# b = np.arange(2).reshape(1, 2)
+# print(a)
+# print('')
+# print(b)
+# print('')
+# print(c)
+# print('')
+# print(a+b)
+print('')
+print(a+c)
