@@ -28,8 +28,8 @@
 n = int(input())
 m = int(input())
 nums = [i+1 for i in range(n)]
-cur = 0         # who is counting now?
-i = 1           # which # is the guy counting?
+cur = 0         # who is counting now? "cur" means "current"
+i = 1           # which number is the guy counting?
 while (len(nums) != 1):
     if(i == m):
         nums.remove(nums[cur])

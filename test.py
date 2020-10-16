@@ -1,6 +1,2 @@
-
-
-
-print(ord('a'))
-b = chr(ord('a')+1)
-print(b)
+sent1 = input().split()
+print(sent1)
