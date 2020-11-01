@@ -19,17 +19,20 @@
 # 如图所示，第二层只有两个节点2和3。
 
 class Node():
-    def __init__(self, data=None, left=None, right=None):
-        self.data = data
+    def __init__(self, data=None, left=None, right=None, layer=None):
+        self.data = int(data)
         self.left = left
         self.right = right
+        self.layer = layer  # 在原来的基础上，增加了layer这一属性
+
 
 def input_tree(node_list):
-    ''' input the data by the layer, make a tree, the root is stored in node_list[0]'''
+    ''' input the data layer by layer, make a tree, the root is stored in node_list[0]'''
 
     input_list = input().split()
     l = len(input_list)
     node_list.append(Node(input_list[0]))
+    node_list[0].layer = 1
     for i in range(1, l):
         if input_list[i] == "None":
             node_list.append(None)
@@ -41,30 +44,23 @@ def input_tree(node_list):
                 while(node_list[k] == None):
                     k += 1
                 node_list[k].left = node
+                node_list[i].layer = node_list[k].layer+1   # 补上layer
             else:
                 k = (i-2)//2
                 while(node_list[k] == None):
                     k += 1
                 node_list[k].right = node
+                node_list[i].layer = node_list[k].layer+1   # 补上layer
 
 
 node_list = []
 input_tree(node_list)
 k = int(input())
-h = 2**(k-1) - 1    # head
-t = 2**k-1          # tail
-l= len(node_list)
-
 ans = 0
-if l <= h:          # 其实有个bug，没法面对多层none的情况，可以通过给node增加layer属性解决
-    ans = 0
-else:
-    for i in range(h, t):
-        if(i < l):
-            if node_list[i] == None:
-                pass
-            elif node_list[i].data == None:
-                pass
-            else:
-                ans += int(node_list[i].data)
+for i in node_list: # 对node_list进行遍历，选出其中layer符合要求的node
+    if i == None:
+        continue
+    else:
+        if i.layer == k:
+            ans += i.data
 print(ans)
