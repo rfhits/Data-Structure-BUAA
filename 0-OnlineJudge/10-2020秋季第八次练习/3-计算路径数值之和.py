@@ -1,6 +1,28 @@
+# 【问题描述】
+# 给定一棵二叉树，一条路径的数值指的是从根节点到叶子节点的十进制数字表示。保证节点的数值不会超过10。
+# 例如1 -> 3 -> 5 -> 2 这条路径的数值则为1352。请求出该二叉树全部路径的数值之和。
+
+# 【输入形式】
+# 同上题，二叉树的完全二叉树式的层次遍历。
+
+# 【输出形式】
+# 一个整数，代表路径数值之和。
+
+# 【样例输入】
+# 1 2 3 4 None 6 7
+
+# 【样例输出】
+# 397
+
+# 【样例说明】
+
+#        1
+#     2    3
+#   4  N  6  7
+
+# 124 + 136 + 137 = 397
+
 ans = 0
-
-
 class Node():
     def __init__(self, data=None, left=None, right=None):
         self.data = data
@@ -28,19 +50,21 @@ def input_tree(node_list):
 def cnt(node, n):
     if node == None:
         return
-    if node.data == "None":
+    elif node.data == "None":
         return
-    if is_leaf(node):
+    elif is_leaf(node):
+            i = n*10 + int(node.data)
+            global ans
+            ans += i
+            return
+    else:
         i = n*10 + int(node.data)
-        global ans
-        ans += i
-        return
-    i = n*10 + int(node.data)
-    cnt(node.left, i)
-    cnt(node.right, i)
+        cnt(node.left, i)
+        cnt(node.right, i)
 
 
 def is_leaf(node):
+    """"是不是叶子节点啊"""
     a1 = (node.left == None)
     if(node.left):
         a2=(node.left.data == "None")

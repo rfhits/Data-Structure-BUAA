@@ -1,3 +1,22 @@
+# 【问题描述】
+# 如上题，按照完全二叉树的格式，依次输入一个二叉树每一层的节点。请先建树之后，按照先序遍历输出全部节点的value。
+# 空结点None不用输出。
+
+# 【输入形式】
+# 同上题，按照层次遍历二叉树的全部节点，空格分隔。
+
+# 【输出形式】
+# 先序遍历的二叉树节点，空格分隔。
+
+# 【样例输入】
+# 1 None 3 None None 4 5 None None None None 6 7 8 9
+
+# 【样例输出】
+# 1 3 4 6 7 5 8 9
+
+# 【样例说明】
+# 这应该很简单吧，白送分
+
 class Node():
     def __init__(self, data=None, left=None, right=None):
         self.data = data
@@ -22,20 +41,20 @@ def input_tree(node_list):
             node_list[k].right = node
 
 
-def tra(node):
+def traversal(node):
     """
     DLR
     """
     if node == None:
         return
-    if node.data != "None":
-        print(node.data, end=' ')
-    else:
+    elif node.data == "None":
         return
-    tra(node.left)
-    tra(node.right)
+    else:
+        print(node.data, end=' ')
+    traversal(node.left)
+    traversal(node.right)
 
 
 node_list = []
 input_tree(node_list)
-tra(node_list[0])
+traversal(node_list[0])
