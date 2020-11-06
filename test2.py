@@ -1,13 +1,2 @@
-leaf1=[]
-leaf2=[]
-
-
-                
-
-
-
-
-
-
-
-node_list=[]
+s= input()
+print(s)
