@@ -1,10 +1,27 @@
+# 【问题描述】输出一个二叉树的中序遍历，但是你能不用递归，而是用迭代来实现吗？
+# 【输入形式】
+# 二叉树的层序遍历，每一层之前的None不省略。
+
+# 【输出形式】
+# 二叉树的中序遍历。
+
+# 【样例输入】
+# 1 2 3 4 5 6 7
+
+# 【样例输出】
+# 4 2 5 1 6 3 7
+
 res = []
-stack =[]
+stack = []
+
+
 class Node():
     def __init__(self, data=None, left=None, right=None):
         self.data = data
         self.left = left
         self.right = right
+
+
 def isN(node):
     if node == None:
         return True
@@ -30,17 +47,18 @@ def input_tree(node_list):
             k = (i-2)//2
             node_list[k].right = node
 
+
 def tra(node):
     t = node
-    while  (not isN(t) ) or stack:
+    while (not isN(t)) or stack:
         if not isN(t):
             stack.append(t)
-            t =t.left
+            t = t.left
         else:
-            t = stack[-1]
-            stack.pop()
+            t = stack.pop()
             res.append(t.data)
-            t =t.right
+            t = t.right
+
 
 node_list = []
 input_tree(node_list)
