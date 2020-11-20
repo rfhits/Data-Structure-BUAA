@@ -10,48 +10,61 @@
 # B D
 
 # 【样例输出】6
+# 注：-1表示无连接
 
-
-
+ans = []
+temp = 0
 dic = {0: "A", 1: "B", 2: "C", 3: "D", 4: "E",
        5: "F", 6: "G", 7: "H", 8: "I", 9: "J"}
 
 
-def fill(mat, dot, t):
-    '''将dot接连的点，并且尚未被mark的点mark'''
+def get_key(dic, val):
+    for k in dic.keys():
+        if dic[k] == val:
+            return k
+
+
+def tra(mat, ver, end):
+    '''找到从ver到end的路径，并且走下去'''
+    global ans
+    global temp
+    global tail
     global n
     global mark
-    for i in range(n):
-        if(mat[dot][i] == 1) and (mark[i] == 0):
-            mark[i] = t
+    if ver == end:
+        ans.append(temp)
+        return
+    else:
+        for i in range(n):
+            if(mark[i] == 0) and (mat[ver][i] >= 0):
+                temp += mat[ver][i]
+                mark[i] = 1
+                tra(mat, i, tail)
+                temp -= mat[ver][i]
+                mark[i] = 0
+
 
 s = input().split()
-n = int(s[0])
-start = s[1]
-
-temp = 1
+s = [int(i) for i in s]
+n = len(s)
 mat = []
 mark = [0]*n
-
 for i in range(n):      # init the matrix
     mat.append([])
     for j in range(n):
         mat[i].append(0)
 
-for k in dic.keys():    # get start
-    if dic[k] == start:
-        start = k
-        break
+for i in range(n):      # the first line of matrix
+    mat[0][i] = s[i]
+for i in range(1, n):   # the other lines of matrix
+    s = input().split()
+    s = [int(i) for i in s]
+    for j in range(n):
+        mat[i][j] = s[j]
 
-mark[k] = 1
-
-for i in range(n):          # fill the matrix
-    s = input()
-    for j in s:
-        if j in dic.values():
-            for k in dic.keys():
-                if dic[k] == j:
-                    mat[i][k] = 1
-                    break
-            
-
+s = input().split()
+head = get_key(dic, s[0])
+tail = get_key(dic, s[1])
+mark[head] = 1
+tra(mat, head, tail)
+print(min(ans))
