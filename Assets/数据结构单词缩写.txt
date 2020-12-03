@@ -1,177 +1,177 @@
 
-2ÕÂ ÏßÐÔ±í 
+2ç«  çº¿æ€§è¡¨ 
 
 
-£ºÏßÐÔ±íµÄ³õÊ¼»¯£¨initial ³õÊ¼µÄ£¬initialize ³õÊ¼»¯£© 
-£ºÇóÏßÐÔ±íµÄ³¤¶È£¨length ³¤¶È£¬long ³¤µÄ£© 
-£ºÈ¡±íÖÐÄ³¸öÔªËØ 
-£º²éÕÒÒ»¸öÖµÎª¸ø¶¨ÖµXµÄÊý¾ÝÔªËØ£¨locate²éÕÒ,µÄµØµã£© 
-£º²åÈë²Ù×÷£¨insert ²åÈë£© 
-£ºÉ¾³ý²Ù×÷£¨delete É¾³ý£© 
+ï¼šçº¿æ€§è¡¨çš„åˆå§‹åŒ–ï¼ˆinitial åˆå§‹çš„ï¼Œinitialize åˆå§‹åŒ–ï¼‰ 
+ï¼šæ±‚çº¿æ€§è¡¨çš„é•¿åº¦ï¼ˆlength é•¿åº¦ï¼Œlong é•¿çš„ï¼‰ 
+ï¼šå–è¡¨ä¸­æŸä¸ªå…ƒç´  
+ï¼šæŸ¥æ‰¾ä¸€ä¸ªå€¼ä¸ºç»™å®šå€¼Xçš„æ•°æ®å…ƒç´ ï¼ˆlocateæŸ¥æ‰¾,çš„åœ°ç‚¹ï¼‰ 
+ï¼šæ’å…¥æ“ä½œï¼ˆinsert æ’å…¥ï¼‰ 
+ï¼šåˆ é™¤æ“ä½œï¼ˆdelete åˆ é™¤ï¼‰ 
 
 
-£º¶¨Òå½á¹¹ÀàÐÍ£¨type ÀàÐÍ£¬define ÏÂ¶¨Òå£¬definition¶¨Òå£¬structure ½á¹¹£© 
-£ºË³Ðò±í£¨sequenceË³Ðò£¬list ±í£© 
-£º·ÖÅäÄÚ´æ£¨memory´æ´¢¡¢¼ÇÒä×°ÖÃ£¬allocation·ÖÅä£© 
+ï¼šå®šä¹‰ç»“æž„ç±»åž‹ï¼ˆtype ç±»åž‹ï¼Œdefine ä¸‹å®šä¹‰ï¼Œdefinitionå®šä¹‰ï¼Œstructure ç»“æž„ï¼‰ 
+ï¼šé¡ºåºè¡¨ï¼ˆsequenceé¡ºåºï¼Œlist è¡¨ï¼‰ 
+ï¼šåˆ†é…å†…å­˜ï¼ˆmemoryå­˜å‚¨ã€è®°å¿†è£…ç½®ï¼Œallocationåˆ†é…ï¼‰ 
 
 
-£ºË³Ðò±íµÄ°´Öµ²éÕÒ£¨location¶¨Î»¡¢Ñ°ÕÒ£© 
+ï¼šé¡ºåºè¡¨çš„æŒ‰å€¼æŸ¥æ‰¾ï¼ˆlocationå®šä½ã€å¯»æ‰¾ï¼‰ 
 
 
-£ººÏ²¢ 
-£º±È½Ï 
-£º½áµã 
-£ºÁ´±í£¨linkÁ´½Ó£© 
-£º½¨Á¢µ¥Á´±í£¨create½¨Á¢£© 
+ï¼šåˆå¹¶ 
+ï¼šæ¯”è¾ƒ 
+ï¼šç»“ç‚¹ 
+ï¼šé“¾è¡¨ï¼ˆlinké“¾æŽ¥ï¼‰ 
+ï¼šå»ºç«‹å•é“¾è¡¨ï¼ˆcreateå»ºç«‹ï¼‰ 
 
 
-¡únext£ººó¼Ì 
-¡úprior£ºÇ°Ç÷£¨priorÓÅÏÈµÄ£© 
+â†’nextï¼šåŽç»§ 
+â†’priorï¼šå‰è¶‹ï¼ˆpriorä¼˜å…ˆçš„ï¼‰ 
 
 
 
-3ÕÂ Õ» 
+3ç«  æ ˆ 
 
 
-£ºÕ» 
-£ºÕ»¶¥£¨top¶¥²¿£© 
-£ºÕ»µ×£¨bottomµ×²¿£© 
+ï¼šæ ˆ 
+ï¼šæ ˆé¡¶ï¼ˆtopé¡¶éƒ¨ï¼‰ 
+ï¼šæ ˆåº•ï¼ˆbottomåº•éƒ¨ï¼‰ 
 
 
-£ºÕ»µÄ³õÊ¼»¯£¨initialize£¬initialization³õÊ¼»¯£© 
-£ºÅÐ±ðÊÇ·ñ¿ÕÕ»£¨empty¿ÕµÄ£© 
-£ºÈëÕ»²Ù×÷£¨pushÍÆ£© 
-£º³öÕ»²Ù×÷£¨pop³öÏÖµã£© 
+ï¼šæ ˆçš„åˆå§‹åŒ–ï¼ˆinitializeï¼Œinitializationåˆå§‹åŒ–ï¼‰ 
+ï¼šåˆ¤åˆ«æ˜¯å¦ç©ºæ ˆï¼ˆemptyç©ºçš„ï¼‰ 
+ï¼šå…¥æ ˆæ“ä½œï¼ˆpushæŽ¨ï¼‰ 
+ï¼šå‡ºæ ˆæ“ä½œï¼ˆpopå‡ºçŽ°ç‚¹ï¼‰ 
 
-4ÕÂ ¶ÓÁÐ 
+4ç«  é˜Ÿåˆ— 
 
 
-£º¶ÓÁÐ 
-£º¶ÓÎ²£¨rearºóÃæ¡¢ºó²¿£© 
-¶ÓÍ·£¨front£© 
+ï¼šé˜Ÿåˆ— 
+ï¼šé˜Ÿå°¾ï¼ˆrearåŽé¢ã€åŽéƒ¨ï¼‰ 
+é˜Ÿå¤´ï¼ˆfrontï¼‰ 
 
 
-£ºÈë¶Ó 
-£º³ö¶Ó 
+ï¼šå…¥é˜Ÿ 
+ï¼šå‡ºé˜Ÿ 
 
 
 
-4ÕÂ ´® 
+4ç«  ä¸² 
 
 
-£ºÇó´®³¤£¨string´®¡¢×Ö·û´®£© 
-£º´®¸³Öµ£¨assign¸³Öµ£© 
-£º´®Á¬½Ó£¨concatenateÊ¹,³É´®µØÁ¬½ÓÆðÀ´£© 
-£ºÇó×Ó´®£¨sub¸½ÊôµÄ¡¢´Î¼¶µÄ£© 
-£º´®±È½Ï£¨compare±È½Ï£© 
-£º×Ó´®¶¨Î»£¨indexË÷Òý£© 
-£º´®²åÈë 
-£º´®É¾³ý 
-£º´®Ìæ»»£¨replace´úÌæ£© 
+ï¼šæ±‚ä¸²é•¿ï¼ˆstringä¸²ã€å­—ç¬¦ä¸²ï¼‰ 
+ï¼šä¸²èµ‹å€¼ï¼ˆassignèµ‹å€¼ï¼‰ 
+ï¼šä¸²è¿žæŽ¥ï¼ˆconcatenateä½¿,æˆä¸²åœ°è¿žæŽ¥èµ·æ¥ï¼‰ 
+ï¼šæ±‚å­ä¸²ï¼ˆsubé™„å±žçš„ã€æ¬¡çº§çš„ï¼‰ 
+ï¼šä¸²æ¯”è¾ƒï¼ˆcompareæ¯”è¾ƒï¼‰ 
+ï¼šå­ä¸²å®šä½ï¼ˆindexç´¢å¼•ï¼‰ 
+ï¼šä¸²æ’å…¥ 
+ï¼šä¸²åˆ é™¤ 
+ï¼šä¸²æ›¿æ¢ï¼ˆreplaceä»£æ›¿ï¼‰ 
 
 
 
-6ÕÂ Êý×é¡¢ÌØÊâ¾ØÕóºÍ¹ãÒå±í 
+6ç«  æ•°ç»„ã€ç‰¹æ®ŠçŸ©é˜µå’Œå¹¿ä¹‰è¡¨ 
 
 
-£º°°µã£¨saddle°°£© 
+ï¼šéžç‚¹ï¼ˆsaddleéžï¼‰ 
 
 
-£ºÏ¡Êè¾ØÕó£¨sparseÏ¡ÊèµÄ£¬matrix¾ØÕó£© 
+ï¼šç¨€ç–çŸ©é˜µï¼ˆsparseç¨€ç–çš„ï¼ŒmatrixçŸ©é˜µï¼‰ 
 
 
-£º³Ë»ýËã·¨£¨multiply³Ë£© 
+ï¼šä¹˜ç§¯ç®—æ³•ï¼ˆmultiplyä¹˜ï¼‰ 
 
 
-£º±íÍ·£¨headÍ·£© 
-£º±íÎ²£¨tailÎ²£© 
-£ºÃ¶¾Ù£¨enumerateÃ¶¾Ù£© 
-£ºÁªºÏ 
-7ÕÂ Ê÷ºÍ¶þ²æÊ÷ 
+ï¼šè¡¨å¤´ï¼ˆheadå¤´ï¼‰ 
+ï¼šè¡¨å°¾ï¼ˆtailå°¾ï¼‰ 
+ï¼šæžšä¸¾ï¼ˆenumerateæžšä¸¾ï¼‰ 
+ï¼šè”åˆ 
+7ç«  æ ‘å’ŒäºŒå‰æ ‘ 
 
 
-£ºÊ÷ 
-£º¸ù 
-£º½áµãµÄ¶È 
-£ºÒ¶×Ó 
-£ºÐÖµÜ 
+ï¼šæ ‘ 
+ï¼šæ ¹ 
+ï¼šç»“ç‚¹çš„åº¦ 
+ï¼šå¶å­ 
+ï¼šå…„å¼Ÿ 
 
 
-Êý×é 
+æ•°ç»„ 
 
 
-£º¶þ²æÊ÷£¨bi-±íÊ¾¡°¶þ¡±£© 
-£º²éÕÒ 
-£º±éÀú 
+ï¼šäºŒå‰æ ‘ï¼ˆbi-è¡¨ç¤ºâ€œäºŒâ€ï¼‰ 
+ï¼šæŸ¥æ‰¾ 
+ï¼šéåŽ† 
 
 
-£ºÏÈÐò£¨pre-±íÊ¾¡°Ç°¡¢ÏÈ¡±£¬orderË³Ðò£© 
-£ºÖÐÐò 
-£ººóÐò£¨post-±íÊ¾¡°ºó¡±£© 
-£º²ã´Î±éÀú£¨levelË®Æ½¡¢¼¶±ð£© 
+ï¼šå…ˆåºï¼ˆpre-è¡¨ç¤ºâ€œå‰ã€å…ˆâ€ï¼Œorderé¡ºåºï¼‰ 
+ï¼šä¸­åº 
+ï¼šåŽåºï¼ˆpost-è¡¨ç¤ºâ€œåŽâ€ï¼‰ 
+ï¼šå±‚æ¬¡éåŽ†ï¼ˆlevelæ°´å¹³ã€çº§åˆ«ï¼‰ 
 
 
 
-8ÕÂ Í¼ 
+8ç«  å›¾ 
 
 
-£ºÍ¼ 
-£º¶¥µã 
+ï¼šå›¾ 
+ï¼šé¡¶ç‚¹ 
 
-£ºÎÞÏòÍ¼£¨undirected·Ç¶¨ÏòµÄ£© 
-£ºÓÐÏòÍ¼£¨directed¶¨ÏòµÄ£© 
-£ºÎÞÏòÍêÈ«Í¼ 
-£º³íÃÜÍ¼ 
-£ºÏ¡ÊèÍ¼ 
-£ºÈ¨ 
-£º×ÓÍ¼ 
-£º±ß 
-£º»¡ 
-£ºÂ·¾¶ 
-£ºÁ¬Í¨Í¼£¨connectedÁ¬½ÓµÄ£© 
-£ºÁ¬Í¨·ÖÁ¿£¨component³É·ÖµÄ¡¢·ÖÁ¿µÄ£© 
+ï¼šæ— å‘å›¾ï¼ˆundirectedéžå®šå‘çš„ï¼‰ 
+ï¼šæœ‰å‘å›¾ï¼ˆdirectedå®šå‘çš„ï¼‰ 
+ï¼šæ— å‘å®Œå…¨å›¾ 
+ï¼šç¨ å¯†å›¾ 
+ï¼šç¨€ç–å›¾ 
+ï¼šæƒ 
+ï¼šå­å›¾ 
+ï¼šè¾¹ 
+ï¼šå¼§ 
+ï¼šè·¯å¾„ 
+ï¼šè¿žé€šå›¾ï¼ˆconnectedè¿žæŽ¥çš„ï¼‰ 
+ï¼šè¿žé€šåˆ†é‡ï¼ˆcomponentæˆåˆ†çš„ã€åˆ†é‡çš„ï¼‰ 
 
-£ºÏú»ÙÍ¼£¨destroy»Ù»µ£© 
+ï¼šé”€æ¯å›¾ï¼ˆdestroyæ¯åï¼‰ 
 
 
-£ºÁÚ½Ó¾ØÕó£¨adjacencyÁÚ½Ó£© 
+ï¼šé‚»æŽ¥çŸ©é˜µï¼ˆadjacencyé‚»æŽ¥ï¼‰ 
 
 
-£ºÁÚ½Ó±í 
+ï¼šé‚»æŽ¥è¡¨ 
 
 
-£ºÍ¼µÄ±éÀú£¨traversing±éÀú£© 
-£ºÉî¶ÈÓÅÏÈËÑË÷£¨depthÉî¶È£¬deepÉîµÄ£¬firstµÚÒ»µÄ£¬searchËÑË÷£© 
+ï¼šå›¾çš„éåŽ†ï¼ˆtraversingéåŽ†ï¼‰ 
+ï¼šæ·±åº¦ä¼˜å…ˆæœç´¢ï¼ˆdepthæ·±åº¦ï¼Œdeepæ·±çš„ï¼Œfirstç¬¬ä¸€çš„ï¼Œsearchæœç´¢ï¼‰ 
 
 
-£º¹ã¶ÈÓÅÏÈËÑË÷£¨breadth¹ã¶È£© 
+ï¼šå¹¿åº¦ä¼˜å…ˆæœç´¢ï¼ˆbreadthå¹¿åº¦ï¼‰ 
 
 
-£º×îÐ¡´ú¼ÛÉú³ÉÊ÷£¨minimum×îÐ¡µÄ£¬cost»¨·Ñ£¬spanningÉú³É£© 
+ï¼šæœ€å°ä»£ä»·ç”Ÿæˆæ ‘ï¼ˆminimumæœ€å°çš„ï¼ŒcostèŠ±è´¹ï¼Œspanningç”Ÿæˆï¼‰ 
 
 
-£ºÓÐÏòÎÞ»·Í¼£¨acyclic·ÇÑ­»·µÄ£© 
+ï¼šæœ‰å‘æ— çŽ¯å›¾ï¼ˆacyclicéžå¾ªçŽ¯çš„ï¼‰ 
 
 
 
-10ÕÂ ÅÅÐò 
+10ç«  æŽ’åº 
 
 
-Ö±½Ó²åÈëÅÅÐò£¨DirectÖ±½ÓµÄ£¬insert²åÈë£¬sortÅÅÐò£© 
+ç›´æŽ¥æ’å…¥æŽ’åºï¼ˆDirectç›´æŽ¥çš„ï¼Œinsertæ’å…¥ï¼ŒsortæŽ’åºï¼‰ 
 
 
-ÕÛ°ë²åÈëÅÅÐò£¨bin searchÕÛ°ë²éÕÒ£¬bin¶þ½øÖÆ£© 
+æŠ˜åŠæ’å…¥æŽ’åºï¼ˆbin searchæŠ˜åŠæŸ¥æ‰¾ï¼ŒbinäºŒè¿›åˆ¶ï¼‰ 
 
 
-Ã°ÅÝÅÅÐò£¨bubbleÃ°ÅÝ£© 
+å†’æ³¡æŽ’åºï¼ˆbubbleå†’æ³¡ï¼‰ 
 
 
-»®·Ö 
-¿ìËÙÅÅÐò£¨Quick¿ìËÙµÄ£© 
+åˆ’åˆ† 
+å¿«é€ŸæŽ’åºï¼ˆQuickå¿«é€Ÿçš„ï¼‰ 
 
 
-Ñ¡ÔñÅÅÐò£¨selectÑ¡Ôñ£© 
+é€‰æ‹©æŽ’åºï¼ˆselecté€‰æ‹©ï¼‰ 
 
 
-µ÷Õû 
-¶ÑÅÅÐò 
+è°ƒæ•´ 
+å †æŽ’åº 
