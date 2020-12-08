@@ -8,7 +8,7 @@ if(os.path.exists("Data")):
 else:
     os.mkdir("Data")
 
-
+# 这是伪装成浏览器，要封装进request的headers，包含了cookie
 headers = {
     'User-Agent':' Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36',
 
@@ -21,7 +21,6 @@ headers = {
 
 
 
-
 base_url = "https://movie.douban.com/top250?start="
 base_filename = "html-"
 
@@ -29,12 +28,13 @@ for i in range(10):
     url = base_url + str(i*25)
     filename = base_filename + str(i) + ".html"
 
+# region
 ##### get html #####
-
-    req = urllib.request.Request(url=url, headers=headers)  # 封装成一个Request Object
-    response = urllib.request.urlopen(req)  # get返回一个file-like型的对象
+req = urllib.request.Request(url=url, headers=headers)  # 封装成一个Request Object
+response = urllib.request.urlopen(req)  # get返回一个file-like型的对象
+# endregion
 
 ##### store #####
-    f = open("Data/"+filename, "w", encoding="utf-8")  # 如果路径不存在，会直接创建文件
-    print(response.read().decode("utf-8"), file=f)
-    f.close()
+f = open("Data/"+filename, "w", encoding="utf-8")  # 如果路径不存在，会直接创建文件
+print(response.read().decode("utf-8"), file=f)  # 把整个html写到文件里，以待后面的提取
+f.close()

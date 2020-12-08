@@ -24,7 +24,7 @@
 
 重要的是，判断有没有文件夹和文件的打开方式
 
-## urllib
+## urllib解析网页
 
 一个可以解析网页的库，我们用里面的request模块
 
@@ -38,7 +38,7 @@ timeout和try-catch
 
 ### 伪装和封装
 
-headers和request中的Request
+带上了cookie进行伪装。  
 
 ## 错误解决
 
