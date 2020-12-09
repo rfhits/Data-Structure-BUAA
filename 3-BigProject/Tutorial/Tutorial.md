@@ -1,4 +1,7 @@
-# 笔记
+# Tutorial
+
+直接看视频，讲得比我好。  
+我的代码提供参考。
 
 ## 新建文件夹写文件
 
@@ -24,22 +27,56 @@
 
 重要的是，判断有没有文件夹和文件的打开方式
 
-## urllib解析网页
+## urllib得到html
 
 一个可以解析网页的库，我们用里面的request模块
 
-request有urlopen函数，返回一个网页的对象。
+### 封装和伪装
 
-可以read再decode("utf-8")
+request模块下的Request函数，  
+接受url和headers，封装成一个request对象  
+这个request就要发送给服务器。
 
-### 超时处理
+对于headers
+带上了User-Agent和cookie进行伪装。  
+cookie的查找可以百度。  
+带上cookie可以anti-anti-spider : )
 
-timeout和try-catch
+### 响应和存储
 
-### 伪装和封装
+request模块有urlopen函数，接受request对象，  
+返回一个网页的对象。
 
-带上了cookie进行伪装。  
+可以read再decode("utf-8")，写到本地的html文件中。
+
+## BeautifulSoup和Re
+
+BeautifulSoup是一个第三方解析网页的库，所以要自行安装；  
+Re库，大家在学习正则表达式时，已经和它打过招呼了。
+
+打开本地的html，使用read函数，得到string-stream。  
+将此string-stream，配合html.parser  
+用bs模块的BeautifulSoup函数进行解析。
+
+### 找到item
+
+利用find_all，找到25个item。  
+将此item标签，强转为str，  
+用regex获取内容。
+
+值得注意的是，有的item中，没有评论(cmnt)。  
+此刻应做判断，返回None。
+
+## 参考链接
+
+[urllib的使用](https://www.bilibili.com/video/BV12E411A7ZQ?p=18)  
+[获取html](https://www.bilibili.com/video/BV12E411A7ZQ?p=19)  
+[BeautifulSoup教程-1](https://www.bilibili.com/video/BV12E411A7ZQ?p=20)  
+[BeautifulSoup教程-2](https://www.bilibili.com/video/BV12E411A7ZQ?p=21)  
+[正则表达式教程-1](https://www.bilibili.com/video/BV12E411A7ZQ?p=22)
+[利用正则表达式提取内容](https://www.bilibili.com/video/BV12E411A7ZQ?p=23)  
+[解析标签并提取](https://www.bilibili.com/video/BV12E411A7ZQ?p=24)  
 
 ## 错误解决
 
-[UnicodeEncodeError: 'gbk' codec can't encode character '\xee' in position 21804: illegal multibyte sequence](https://www.jb51.net/article/64816.htm)
+[打开文件，报gbk相关错误](https://www.jb51.net/article/64816.htm)
