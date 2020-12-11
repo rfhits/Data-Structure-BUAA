@@ -1,5 +1,9 @@
 import random
 
+# 这里既可以使用class进行封装，
+# 也可以使用dict进行封装
+# dict会更方便
+
 class movie():
     def __init__(self, lst):
         self.rank = lst[0]

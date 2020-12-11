@@ -67,16 +67,35 @@ Re库，大家在学习正则表达式时，已经和它打过招呼了。
 值得注意的是，有的item中，没有评论(cmnt)。  
 此刻应做判断，返回None。
 
+## PyQt5的使用
+
+只需参照参考链接，上手很快的。  
+关于如何将label中的文字居中，可以看这里->[label文字居中](https://blog.csdn.net/qq_38161040/article/details/88852923)  
+直接通过UI来调，省的写代码
+
 ## 参考链接
 
+### 爬取html
+
 [urllib的使用](https://www.bilibili.com/video/BV12E411A7ZQ?p=18)  
-[获取html](https://www.bilibili.com/video/BV12E411A7ZQ?p=19)  
+[获取html](https://www.bilibili.com/video/BV12E411A7ZQ?p=19)
+
+### 解析标签
+
 [BeautifulSoup教程-1](https://www.bilibili.com/video/BV12E411A7ZQ?p=20)  
 [BeautifulSoup教程-2](https://www.bilibili.com/video/BV12E411A7ZQ?p=21)  
 [正则表达式教程-1](https://www.bilibili.com/video/BV12E411A7ZQ?p=22)
 [利用正则表达式提取内容](https://www.bilibili.com/video/BV12E411A7ZQ?p=23)  
 [解析标签并提取](https://www.bilibili.com/video/BV12E411A7ZQ?p=24)  
 
+### PyQt5
+
+[1. 安装并使用PyQt5进行界面设计](https://blog.csdn.net/weixin_41929524/article/details/81456308)  
+[2. 实现界面中的退出功能](https://blog.csdn.net/weixin_41929524/article/details/81460203)
+
+
 ## 错误解决
 
 [打开文件，报gbk相关错误](https://www.jb51.net/article/64816.htm)
+[pyqt5 'QWidget' object has no attribute 'setCentralWidget'](https://blog.csdn.net/wardenjohn/article/details/87628891)  
+此处要将自己继承的类里的QWidget改为QMainWindow

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>693</width>
+    <height>316</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="4">
+     <widget class="QComboBox" name="comboBox">
+      <property name="font">
+       <font>
+        <family>Adobe Devanagari</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>全名搜索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>正则匹配</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>排名搜索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>排名范围</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>评分检索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>评分范围</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>年份检索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>年份范围</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="pushButton_luck">
+      <property name="text">
+       <string>手气不错</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="GuideJ">
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>助理小J</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="indent">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="QTextBrowser" name="textBrowser_luck"/>
+    </item>
+    <item row="3" column="2">
+     <widget class="QTextBrowser" name="textBrowser_GuideJ"/>
+    </item>
+    <item row="4" column="1" colspan="2">
+     <widget class="QLabel" name="label_5">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Copyright@JailSpyder 🕷-∞  All rights reserved</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="indent">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3" colspan="3">
+     <widget class="QTextBrowser" name="textBrowser_res"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QLineEdit" name="lineEdit_input"/>
+    </item>
+    <item row="0" column="3" colspan="3">
+     <widget class="QLabel" name="Title">
+      <property name="font">
+       <font>
+        <family>Adobe Devanagari</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>豆瓣电影Top250检索系统</string>
+      </property>
+      <property name="indent">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QPushButton" name="pushButton_search">
+      <property name="font">
+       <font>
+        <family>Adobe Devanagari</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>检索一下</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
+     <widget class="QLabel" name="JailSpyder">
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="lineWidth">
+       <number>2</number>
+      </property>
+      <property name="text">
+       <string>JailSpyder</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="indent">
+       <number>0</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>693</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuHello_Spy">
+    <property name="title">
+     <string>Hello Spy</string>
+    </property>
+   </widget>
+   <addaction name="menuHello_Spy"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

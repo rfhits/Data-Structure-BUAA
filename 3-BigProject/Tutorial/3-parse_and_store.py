@@ -47,7 +47,7 @@ for i in range(10):  # 对10个html依次读取
     f = open(filename, encoding="utf-8")
     html = f.read()
 
-    bs = BeautifulSoup(html, "html.parser")
+    bs = BeautifulSoup(html, "html.parser")     # receive a string stream
     item_lst = bs.find_all("div", class_="item")
     for item in item_lst:
         item = str(item)
@@ -60,9 +60,9 @@ for i in range(10):  # 对10个html依次读取
 f = open("data.txt", "w", encoding="utf-8")
 # 将电影的属性写入文件时，
 # 如果要用strip处理， 
-# 切记不能每行就包含一个电影的属性，可能有空格，此处导致了第一个bug
+# 切记不能每行就包含一个电影的所有属性，可能有空格，此处导致了我的第一个bug
 # 所以此处每行只有一个属性，一个movie有6行属性
-# 详情请见Data.txt
+# 详情请见data.txt
 for i in range(250):
     print(i+1, file=f)
     print(title_lst[i], file=f)

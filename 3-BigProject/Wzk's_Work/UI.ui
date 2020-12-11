@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>836</width>
+    <height>355</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Arxiv Paper Retriever</string>
+  </property>
+  <widget class="QLabel" name="label_title">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>10</y>
+     <width>577</width>
+     <height>53</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>40</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Arxiv Paper Retriever</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_scope">
+   <property name="geometry">
+    <rect>
+     <x>74</x>
+     <y>88</y>
+     <width>753</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>Scope: Computer Science, 2019  (51405 papers in total)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_greybg">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>84</y>
+     <width>821</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(160, 160, 160);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_lightgrey">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>114</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(235, 235, 235);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_input_2">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>136</y>
+     <width>41</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Subject (optional)</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_input">
+   <property name="geometry">
+    <rect>
+     <x>68</x>
+     <y>136</y>
+     <width>131</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Arxiv number / Title</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>403</x>
+     <y>136</y>
+     <width>178</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Title (regular expression)</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Title (precise)</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Arxiv Number</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="button_number">
+   <property name="geometry">
+    <rect>
+     <x>587</x>
+     <y>134</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>163</y>
+     <width>818</width>
+     <height>129</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe Arabic</family>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Adobe Arabic'; font-size:15pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_author_rank">
+   <property name="geometry">
+    <rect>
+     <x>238</x>
+     <y>298</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Author Rank</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_subject_rank">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>298</y>
+     <width>80</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Subject Rank</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_blackbg">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>327</y>
+     <width>821</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_wzklogo">
+   <property name="geometry">
+    <rect>
+     <x>669</x>
+     <y>327</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/b1/1.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_copyright">
+   <property name="geometry">
+    <rect>
+     <x>238</x>
+     <y>327</y>
+     <width>263</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Comic Sans MS</family>
+     <pointsize>10</pointsize>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>Copyright@wzk 1999-?  All rights reserved</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_redbg">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>551</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(191, 3, 6);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_lightgrey</zorder>
+  <zorder>label_blackbg</zorder>
+  <zorder>label_greybg</zorder>
+  <zorder>label_title</zorder>
+  <zorder>label_scope</zorder>
+  <zorder>label_copyright</zorder>
+  <zorder>button_number</zorder>
+  <zorder>label_wzklogo</zorder>
+  <zorder>line_input</zorder>
+  <zorder>line_input_2</zorder>
+  <zorder>comboBox</zorder>
+  <zorder>textBrowser</zorder>
+  <zorder>button_author_rank</zorder>
+  <zorder>button_subject_rank</zorder>
+  <zorder>label_redbg</zorder>
+ </widget>
+ <tabstops>
+  <tabstop>line_input_2</tabstop>
+  <tabstop>line_input</tabstop>
+  <tabstop>comboBox</tabstop>
+  <tabstop>button_number</tabstop>
+  <tabstop>textBrowser</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+ <slots>
+  <signal>signal1()</signal>
+ </slots>
+</ui>
