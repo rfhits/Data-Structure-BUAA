@@ -21,6 +21,7 @@ rating_pat = re.compile(
     r'<span class="rating_num" property="v:average">(.*)</span>')
 link_pat = re.compile(r'<a href="(.*)">')
 cmnt_pat = re.compile(r'<span class="inq">(.*)</span>')
+year_pat = re.compile(r'[\s]{2}([0-9]{4})')
 # endregion
 
 
@@ -30,6 +31,7 @@ title_lst = []
 rating_lst = []
 link_lst = []
 cmnt_lst = []
+year_lst = []
 # endregion
 
 
@@ -55,11 +57,12 @@ for i in range(10):  # 对10个html依次读取
         rating_lst.append(re.findall(rating_pat, item)[0])
         link_lst.append(re.findall(link_pat, item)[0])
         cmnt_lst.append(elem(re.findall(cmnt_pat, item)))
+        year_lst.append(re.findall(year_pat, item)[0])
     f.close()
 
 f = open("data.txt", "w", encoding="utf-8")
 # 将电影的属性写入文件时，
-# 如果要用strip处理， 
+# 如果要用strip处理，
 # 切记不能每行就包含一个电影的所有属性，可能有空格，此处导致了我的第一个bug
 # 所以此处每行只有一个属性，一个movie有6行属性
 # 详情请见data.txt
@@ -69,4 +72,5 @@ for i in range(250):
     print(rating_lst[i], file=f)
     print(cmnt_lst[i], file=f)
     print(link_lst[i], file=f)
+    print(year_lst[i], file=f)
     print('', file=f)

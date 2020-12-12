@@ -69,6 +69,8 @@ Re库，大家在学习正则表达式时，已经和它打过招呼了。
 
 ## PyQt5的使用
 
+pyuic5 -o JailSpyder.py JailSpyder.ui
+
 只需参照参考链接，上手很快的。  
 关于如何将label中的文字居中，可以看这里->[label文字居中](https://blog.csdn.net/qq_38161040/article/details/88852923)  
 直接通过UI来调，省的写代码
