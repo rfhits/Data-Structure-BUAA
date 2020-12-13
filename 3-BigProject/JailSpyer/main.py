@@ -16,13 +16,23 @@ num = 250
 tree = Bptree(4, 4)
 cnt = 0
 
-#  region 一个电影元素的内容：rank、title、 rating、cmnt、link、year
+Jwelcome = "欢迎来到豆瓣电影Top250检索系统！"
+luck_int = "不知道要看哪部电影？\n试试“手气不错”！"
+
+tags = "犯罪 剧情 爱情 同性 动作 灾难 喜剧  战争 动画 奇幻 历史 科幻 悬疑 冒险  音乐 歌舞 古装 传记 家庭 惊悚 运动  西部 情色 儿童 纪录片 武侠 恐怖"
+
+
+#  region 一个电影元素的内容
 # 1
 # 肖申克的救赎
+# 犯罪 剧情
+# 弗兰克·德拉邦特 Frank Darabont
+# 蒂姆·罗宾斯 Tim Robbins /...
+# 美国
 # 9.7
+# 1994
 # 希望让人自由。
 # https://movie.douban.com/subject/1292052/
-# 1994
 # endregion
 
 
@@ -33,21 +43,40 @@ def lst_to_dct(lst):
     movie = {}
     movie["rank"] = int(lst[0])
     movie["title"] = lst[1]
-    movie["rating"] = float(lst[2])
-    movie["cmnt"] = lst[3]
-    movie["link"] = lst[4]
-    movie["year"] = int(lst[5])
+    movie["tag"] = lst[2]
+
+    movie["dir"] = lst[3]
+    movie["star"] = lst[4]
+    movie["rgn"] = lst[5]
+
+    movie["rating"] = float(lst[6])
+    movie["year"] = int(lst[7])
+
+    movie["cmnt"] = lst[8]
+    movie["link"] = lst[9]
+
+    movie["path"] = "Movies/movie-" + str(movie["rank"]) + ".txt"
     return movie
 
 
 def movie_to_str(movie):
     out = ''
-    out += '名称：' + movie['title'] + '\n'
-    out += '上映年份：' + str(movie['year']) + '\n'
     out += '排名：' + str(movie['rank']) + '\n'
+    out += '名称：' + movie['title'] + '\n'
+    out += '类别：' + movie['tag'] + '\n\n'
+
+    out += '导演：' + movie['dir'] + '\n'
+    out += '主演：' + movie['star'] + '\n'
+    out += '国家或地区：' + movie['rgn'] + '\n\n'
+
     out += '评分：' + str(movie['rating']) + '\n'
-    out += '精选评论：\n' + movie['cmnt'] + '\n'
-    out += '链接：\n' + movie['link'] + '\n\n\n'
+    out += '上映年份：' + str(movie['year']) + '\n'
+
+    out += '精选评论：\n' + movie['cmnt'] + '\n\n'
+    out += '链接：\n' + movie['link'] + '\n'
+    out += '本地路径：\n' + 'Movies/movie-' + str(movie['rank']) + '.txt\n'
+    out += '----------\n\n\n'
+
     return out
 
 
@@ -65,6 +94,26 @@ def fuzzy_value(movie, keywords):
     return value
 
 
+def tag_value(movie, tag_lst):
+    value = 0
+    for tag in tag_lst:
+        if tag in movie["tag"]:
+            value += 1
+        else:
+            pass
+    return value
+
+
+def star_value(movie, star_lst):
+    value = 0
+    for star in star_lst:
+        if star in movie["star"]:
+            value += 1
+        else:
+            pass
+    return value
+
+
 class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def __init__(self):
@@ -76,6 +125,10 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         # feeling lucky, give a random to user
         self.pushButton_luck.clicked.connect(self.luck)
+
+        # init UI
+        self.textBrowser_GuideJ.setText(Jwelcome)
+        self.textBrowser_luck.setText(luck_int)
 
     def search(self):
         global movies
@@ -107,6 +160,55 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 Jstr = "共找到了" + str(len(search_res)) + "条结果！"
                 for tp in search_res:
                     res += movie_to_str(tp[0])
+
+        elif self.comboBox.currentText() == "类别搜索":
+            Jstr = ''
+            res = ''
+            tag_lst = word_in.split()
+            search_res = [(movie, tag_value(movie, tag_lst))
+                          for movie in movies if (tag_value(movie, tag_lst)) > 0]
+            if len(search_res) == 0:
+                Jstr = "很抱歉，没有找到。\n"
+                Jstr += "支持的类别关键字有：\n\n"
+                Jstr += tags + "\n\n"
+                Jstr += "要不换个关键字（词）试试？ O(∩_∩)O"
+            else:
+                search_res.sort(key=lambda tp: tp[1], reverse=True)
+                Jstr = "共有" + str(len(search_res)) + "部电影的类别和您的输入相关 (*^_^*)"
+                for tp in search_res:
+                    res += movie_to_str(tp[0])
+
+        elif self.comboBox.currentText() == "导演搜索":
+            Jstr = ''
+            res = ''
+            cnt = 0
+            for movie in movies:
+                if word_in in movie["dir"]:
+                    res += movie_to_str(movie)
+                    cnt += 1
+                else:
+                    pass
+            if cnt == 0:
+                Jstr += "抱歉，好像没有导演的名字能匹配上您的输入呢/(ㄒoㄒ)/~~\n"
+                Jstr += "要不，换个关键字（词）试试"
+            else:
+                Jstr += "共有" + str(cnt) + "位导演的名字匹配上了您的输入！O(∩_∩)O"
+
+        elif self.comboBox.currentText() == "主演搜索":
+            Jstr = ''
+            res = ''
+            star_lst = word_in.split()
+            search_res = [(movie, star_value(movie, star_lst))
+                          for movie in movies if (star_value(movie, star_lst)) > 0]
+            if len(search_res) == 0:
+                Jstr = "很抱歉，什么也没有找到。,,ԾㅂԾ,,\n"
+                Jstr += "要不换个主演的名字试试？"
+            else:
+                search_res.sort(key=lambda tp: tp[1], reverse=True)
+                Jstr = "共有" + str(len(search_res)) + "部电影和您的输入的主演信息相关 (*^_^*)"
+                for tp in search_res:
+                    res += movie_to_str(tp[0])
+
         elif self.comboBox.currentText() == "排名搜索":
             try:
                 rank = int(word_in)
@@ -219,18 +321,24 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def luck(self):
         ran = random.randint(1, num+1)
         # print(ran)
-        movie = tree.search(ran).value
-        res = movie_to_str(movie)
-        Jstr = "哦，你找到了《" + movie['title'] + "》\n"
-        Jstr += "不知道你看过没有，真的很不错哦！"
+        try:
+            movie = tree.search(ran).value
+            res = movie_to_str(movie)
+            Jstr = "哦，你找到了《" + movie['title'] + "》\n"
+            Jstr += "不知道你看过没有，真的很不错哦！"
+
+        except:
+            Jstr = "第" + str(ran) + "部电影出了点问题 ,,ԾㅂԾ,,"
+
         self.textBrowser_GuideJ.setText(Jstr)
         self.textBrowser_luck.setText(res)
-
     # region 写入B+树
     f = open("data.txt", "r", encoding="utf-8")
     data = [str(line.strip()) for line in f]
     for i in range(250):
-        movie_lst = data[i*7:i*7+6]
+
+        movie_lst = data[i*11: i*11+10]
+
         movies.append(lst_to_dct(movie_lst))
         i += 1
     # region test movies

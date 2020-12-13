@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>666</width>
-    <height>376</height>
+    <width>823</width>
+    <height>411</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,29 +18,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="JailSpyder">
-      <property name="font">
-       <font>
-        <family>Times New Roman</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="lineWidth">
-       <number>2</number>
-      </property>
-      <property name="text">
-       <string>JailSpyder</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="indent">
-       <number>0</number>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2" colspan="3">
+    <item row="0" column="0" colspan="5">
      <widget class="QLabel" name="Title">
       <property name="font">
        <font>
@@ -50,6 +28,9 @@
       </property>
       <property name="text">
        <string>豆瓣电影Top250检索系统</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
       <property name="indent">
        <number>0</number>
@@ -95,12 +76,27 @@
       </property>
       <item>
        <property name="text">
+        <string>模糊搜索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
         <string>全名搜索</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>模糊搜索</string>
+        <string>类别搜索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>导演搜索</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>主演搜索</string>
        </property>
       </item>
       <item>
@@ -157,7 +153,14 @@
     <item row="2" column="2" colspan="3">
      <widget class="QTextBrowser" name="textBrowser_res"/>
     </item>
-    <item row="3" column="0" colspan="5">
+    <item row="3" column="4">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="4">
      <widget class="QLabel" name="label_5">
       <property name="enabled">
        <bool>true</bool>
@@ -169,7 +172,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Copyright@JailSpyder 🕷-∞  All rights reserved</string>
+       <string>Copyright@JailSpyder 🕷-∞  All Rights Reserved</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -186,13 +189,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>666</width>
+     <width>823</width>
      <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHello_Spy">
     <property name="title">
-     <string>Hello Spy</string>
+     <string>JailSpyder</string>
     </property>
    </widget>
    <addaction name="menuHello_Spy"/>
@@ -200,5 +203,22 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>122</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>217</x>
+     <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
