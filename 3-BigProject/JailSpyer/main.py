@@ -30,6 +30,7 @@ Jwelcome = "欢迎来到豆瓣电影Top250检索系统！"
 luck_int = "不知道要看哪部电影？\n试试“手气不错”！"
 tags = "犯罪 剧情 爱情 同性 动作 灾难 喜剧  战争 动画 奇幻 历史 科幻 悬疑 冒险  音乐 歌舞 古装 传记 家庭 惊悚 运动  西部 情色 儿童 纪录片 武侠 恐怖"
 
+
 def lst_to_dct(lst):
     """
     把列表变成字典
@@ -53,14 +54,12 @@ def lst_to_dct(lst):
     return movie
 
 
-def movie_to_str(movie, fuzzy_lst=None):
+def movie_to_str(movie, fuzzy_lst=None, value=None):
     out = ''
     if fuzzy_lst != None:
         out += "关键词："
-        for i in fuzzy_lst:
-            out += str(i)
+        out += " ".join(fuzzy_lst)
         out += "\n\n"
-
     out += '排名：' + str(movie['rank']) + '\n'
     out += '名称：' + movie['title'] + '\n'
     out += '类别：' + movie['tag'] + '\n\n'
@@ -170,10 +169,12 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 Jstr = "很抱歉，没有找到。\n"
                 Jstr += "要不换个关键词试试？ : )"
             else:
-                search_res.sort(key=lambda tp: tp[1][0], reverse=True)
+                search_res.sort(key=lambda tp: (
+                    len(tp[1][1]), tp[1][0]), reverse=True)
                 Jstr = "共找到了" + str(len(search_res)) + "条结果！"
                 for tp in search_res:
-                    res += movie_to_str(tp[0], fuzzy_lst=tp[1][1])
+                    res += movie_to_str(tp[0], fuzzy_lst=tp[1]
+                                        [1], value=tp[1][0])
 
         elif self.comboBox.currentText() == "类别搜索":
             Jstr = ''
