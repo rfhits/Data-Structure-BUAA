@@ -16,25 +16,19 @@ num = 250
 tree = Bptree(4, 4)
 cnt = 0
 
-Jwelcome = "欢迎来到豆瓣电影Top250检索系统！"
-luck_int = "不知道要看哪部电影？\n试试“手气不错”！"
-
-tags = "犯罪 剧情 爱情 同性 动作 灾难 喜剧  战争 动画 奇幻 历史 科幻 悬疑 冒险  音乐 歌舞 古装 传记 家庭 惊悚 运动  西部 情色 儿童 纪录片 武侠 恐怖"
-
-
-#  region 一个电影元素的内容
+#  region 一个电影元素的内容：rank、title、 rating、cmnt、link、year
 # 1
 # 肖申克的救赎
-# 犯罪 剧情
-# 弗兰克·德拉邦特 Frank Darabont
-# 蒂姆·罗宾斯 Tim Robbins /...
-# 美国
 # 9.7
-# 1994
 # 希望让人自由。
 # https://movie.douban.com/subject/1292052/
+# 1994
 # endregion
 
+
+Jwelcome = "欢迎来到豆瓣电影Top250检索系统！"
+luck_int = "不知道要看哪部电影？\n试试“手气不错”！"
+tags = "犯罪 剧情 爱情 同性 动作 灾难 喜剧  战争 动画 奇幻 历史 科幻 悬疑 冒险  音乐 歌舞 古装 传记 家庭 惊悚 运动  西部 情色 儿童 纪录片 武侠 恐怖"
 
 def lst_to_dct(lst):
     """
@@ -59,8 +53,14 @@ def lst_to_dct(lst):
     return movie
 
 
-def movie_to_str(movie):
+def movie_to_str(movie, fuzzy_lst=None):
     out = ''
+    if fuzzy_lst != None:
+        out += "关键词："
+        for i in fuzzy_lst:
+            out += str(i)
+        out += "\n\n"
+
     out += '排名：' + str(movie['rank']) + '\n'
     out += '名称：' + movie['title'] + '\n'
     out += '类别：' + movie['tag'] + '\n\n'
@@ -82,16 +82,27 @@ def movie_to_str(movie):
 
 def fuzzy_value(movie, keywords):
     value = 0
+    fuzzy_lst = []
     for kw in keywords:
+        flag = 0
         if kw in movie["title"]:
             value += 1
+            flag = 1
         else:
             pass
         if kw in movie['cmnt']:
             value += 1
+            flag = 1
         else:
             pass
-    return value
+        if kw in movie["tag"]:
+            value += 1
+            flag = 1
+        else:
+            pass
+        if flag == 1:
+            fuzzy_lst.append(kw)
+    return (value, fuzzy_lst)
 
 
 def tag_value(movie, tag_lst):
@@ -119,6 +130,8 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(mywindow, self).__init__()
         self.setupUi(self)
+
+        self.setWindowIcon(QIcon('img/douban.ico'))
 
         # search
         self.pushButton_search.clicked.connect(self.search)
@@ -151,15 +164,16 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
             keywords = word_in.split(' ')
             # print(keywords)
             search_res = [(movie, fuzzy_value(movie, keywords))
-                          for movie in movies if (fuzzy_value(movie, keywords) > 0)]
+                          for movie in movies if (fuzzy_value(movie, keywords)[0] > 0)]
+            # search_res: [(movie, (value, fuzzy_lst)), ]
             if len(search_res) == 0:
                 Jstr = "很抱歉，没有找到。\n"
                 Jstr += "要不换个关键词试试？ : )"
             else:
-                search_res.sort(key=lambda tp: tp[1], reverse=True)
+                search_res.sort(key=lambda tp: tp[1][0], reverse=True)
                 Jstr = "共找到了" + str(len(search_res)) + "条结果！"
                 for tp in search_res:
-                    res += movie_to_str(tp[0])
+                    res += movie_to_str(tp[0], fuzzy_lst=tp[1][1])
 
         elif self.comboBox.currentText() == "类别搜索":
             Jstr = ''
@@ -169,9 +183,9 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                           for movie in movies if (tag_value(movie, tag_lst)) > 0]
             if len(search_res) == 0:
                 Jstr = "很抱歉，没有找到。\n"
-                Jstr += "支持的类别关键字有：\n\n"
-                Jstr += tags + "\n\n"
-                Jstr += "要不换个关键字（词）试试？ O(∩_∩)O"
+                Jstr += "支持的类的关键字有：\n"
+                Jstr += tags + "\n"
+                Jstr += "要不换个类别试试？ : )"
             else:
                 search_res.sort(key=lambda tp: tp[1], reverse=True)
                 Jstr = "共有" + str(len(search_res)) + "部电影的类别和您的输入相关 (*^_^*)"
@@ -223,10 +237,11 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     Jstr = "请输入一个1到250之间的整数！"
                     res = ""
         elif self.comboBox.currentText() == "排名范围":
+            Jstr = "请输入两个1到250之间的数，空格隔开。\n谢谢 :)"
             try:
                 rank_range = [int(i) for i in word_in.split()]
             except:
-                Jstr = "请输入两个1到250之间的数，空格隔开。\n谢谢 :)"
+                pass
             else:
                 if len(rank_range) != 2:
                     Jstr = Jstr = "请输入两个1到250之间的数，空格隔开。\n谢谢 :)"
@@ -255,10 +270,11 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
             except:
                 Jstr = "请输入一个1到10之间的数 :)"
         elif self.comboBox.currentText() == "评分范围":
+            Jstr = "请输入两个0到10之间的实数，空格隔开。\n谢谢 :)"
             try:
                 rating_range = [float(i) for i in word_in.split()]
             except:
-                Jstr = "请输入两个0到10之间的实数，空格隔开。\n谢谢 :)"
+                pass
             else:
                 if len(rating_range) != 2:
                     Jstr = Jstr = "请输入两个0到10之间的实数，空格隔开。\n谢谢 :)"
@@ -290,10 +306,11 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                         pass
                 Jstr = "共有" + str(search_num) + "部电影在" + str(year) + "年上映。"
         elif self.comboBox.currentText() == "年份范围":
+            Jstr = "世界上第一部电影上映年份是1985年哦\n请输入两个合法的年份，空格隔开。\n谢谢 :)"
             try:
                 year_range = [int(i) for i in word_in.split()]
             except:
-                Jstr = "世界上第一部电影上映年份是1985年哦\n所以请输入两个合法的年份，空格隔开。\n谢谢 :)"
+                Jstr = "世界上第一部电影上映年份是1985年哦\n请输入两个合法的年份，空格隔开。\n谢谢 :)"
             else:
                 if len(year_range) != 2:
                     pass
@@ -309,7 +326,7 @@ class mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                     Jstr = "有" + str(search_num) + "部电影在" + \
                         str(year_range[0])+"年到" + str(year_range[1]) + "年内上映！"
                 else:
-                    Jstr = "世界上第一部电影上映年份是1985年哦\n所以请输入两个合法的年份，空格隔开。\n谢谢 :)"
+                    Jstr = "世界上第一部电影上映年份是1985年哦\n请输入两个合法的年份，空格隔开。\n谢谢 :)"
         else:
             self.textBrowser_GuideJ.setText("comboBox Error")
 
