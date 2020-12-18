@@ -101,3 +101,5 @@ pyuic5 -o JailSpyder.py JailSpyder.ui
 [打开文件，报gbk相关错误](https://www.jb51.net/article/64816.htm)
 [pyqt5 'QWidget' object has no attribute 'setCentralWidget'](https://blog.csdn.net/wardenjohn/article/details/87628891)  
 此处要将自己继承的类里的QWidget改为QMainWindow
+
+randint范围不是左闭右开，否则数组越界
