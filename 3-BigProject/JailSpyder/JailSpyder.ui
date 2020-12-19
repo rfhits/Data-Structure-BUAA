@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>823</width>
-    <height>411</height>
+    <width>615</width>
+    <height>327</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -147,20 +147,17 @@
     <item row="2" column="0">
      <widget class="QTextBrowser" name="textBrowser_luck"/>
     </item>
-    <item row="2" column="1">
-     <widget class="QTextBrowser" name="textBrowser_GuideJ"/>
-    </item>
-    <item row="2" column="2" colspan="3">
-     <widget class="QTextBrowser" name="textBrowser_res"/>
-    </item>
-    <item row="3" column="4">
-     <widget class="QPushButton" name="pushButton">
+    <item row="3" column="0">
+     <widget class="QLabel" name="cover">
       <property name="text">
-       <string>Exit</string>
+       <string>好运在此！</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
-    <item row="3" column="0" colspan="4">
+    <item row="4" column="0" colspan="4">
      <widget class="QLabel" name="label_5">
       <property name="enabled">
        <bool>true</bool>
@@ -182,6 +179,19 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="4">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" rowspan="2" colspan="3">
+     <widget class="QTextBrowser" name="textBrowser_res"/>
+    </item>
+    <item row="2" column="1" rowspan="2">
+     <widget class="QTextBrowser" name="textBrowser_GuideJ"/>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -189,7 +199,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>823</width>
+     <width>615</width>
      <height>22</height>
     </rect>
    </property>
