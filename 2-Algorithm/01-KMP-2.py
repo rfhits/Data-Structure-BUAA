@@ -1,3 +1,4 @@
+# 自己第一次写的
 def get_prefix(a):
     pat = list(a)
     prefix = [0, ]
@@ -40,5 +41,6 @@ def KMP_search(text, pat):
     return list_match
 
 
-match = KMP_search("ababcabcab", 'abc')
-print(match)
+print(get_prefix("abcadabc"))
+# match = KMP_search("ababcabcab", 'abc')
+# print(match)

@@ -1,3 +1,4 @@
+# 最优的KMP，but，看不懂
 # 只给出第一次匹配到的地方
 def gen_next(pat):
     """
@@ -10,7 +11,7 @@ def gen_next(pat):
             i, k = i + 1, k + 1
             if pat[i] == pat[k]:
                 next[i] = next[k]
-            else:
+            else:   # if k ==  -1
                 next[i] = k
         else:
             k = next[k]
@@ -26,11 +27,11 @@ def KMP_search(text, pat):
             i += 1
             j += 1
         else:
-            j = next[j]
+            j = next[j]  # pat slide
     if(j == m):
         return i-j
     else:
         return -1
 
-
 print(KMP_search('aaababc', 'ababc'))
+# print(gen_next("abcadabc"))
