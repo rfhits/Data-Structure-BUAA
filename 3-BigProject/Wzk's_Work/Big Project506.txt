@@ -1,8 +1,0 @@
-Paper506, arxiv number:180102328
-Title:
-  Deep Nearest Class Mean Model for Incremental Odor Classification
-Subjects:
-  Machine Learning (cs.LG)
-Authors:
-  Yu Cheng, Angus Wong, Kevin Hung, Zhizhong Li, Weitong Li, Jun Zhang
-
